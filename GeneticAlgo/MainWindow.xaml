@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0">BestGenes</Label>
+        <TextBlock Grid.Column="1" Grid.Row="0" x:Name="txtBestGenes"></TextBlock>
+        
+        <Label Grid.Column="0" Grid.Row="1">BestFitness</Label>
+        <TextBlock Grid.Column="1" Grid.Row="1" x:Name="txtBestFitness"></TextBlock>
+
+        <Label Grid.Column="0" Grid.Row="2">Generation</Label>
+        <TextBlock Grid.Column="1" Grid.Row="2" x:Name="txtGeneration"></TextBlock>
+
+        <Label Grid.Column="0" Grid.Row="3">Population</Label>
+        <TextBlock Grid.Column="1" Grid.Row="3" x:Name="txtPopulation"></TextBlock>
+        
+        <Label Grid.Column="0" Grid.Row="4">Genes</Label>
+        <TextBlock Grid.Column="1" Grid.Row="4" x:Name="txtGenes"></TextBlock>
     </Grid>
 </Window>
