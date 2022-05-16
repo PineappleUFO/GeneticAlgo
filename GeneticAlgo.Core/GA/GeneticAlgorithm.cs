@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GeneticAlgo.GA
+namespace GeneticAlgo.Core.GA
 {
-    internal class GeneticAlgorithm<T>
+    public class GeneticAlgorithm<T>
     {
         public List<DNA<T>> Population { get; private set; }
         public int Generation { get; private set; }
@@ -19,7 +22,7 @@ namespace GeneticAlgo.GA
 
         List<DNA<T>> newPopulation;
 
-        public GeneticAlgorithm(int populationSize, int dnaSize, Random random, Func<T> getRandomGene, Func<int, float> fitnessFunction,int Elitism, float mutationRate = 0.01f)
+        public GeneticAlgorithm(int populationSize, int dnaSize, Random random, Func<T> getRandomGene, Func<int, float> fitnessFunction, int Elitism, float mutationRate = 0.01f)
         {
             Generation = 1;
             this.Elitism = Elitism;
@@ -47,12 +50,12 @@ namespace GeneticAlgo.GA
 
             for (int i = 0; i < Population.Count; i++)
             {
-                if(i < Elitism)
+                if (i < Elitism)
                 {
                     newPopulation.Add(Population[i]);
                 }
                 else
-                    {
+                {
                     DNA<T> parent1 = ChooseParent();
                     DNA<T> parent2 = ChooseParent();
 
@@ -65,7 +68,7 @@ namespace GeneticAlgo.GA
 
                     newPopulation.Add(child);
                 }
-             
+
 
             }
 
@@ -76,12 +79,13 @@ namespace GeneticAlgo.GA
 
         }
 
-        public int CompareDNA(DNA<T> a,DNA<T> b)
+        public int CompareDNA(DNA<T> a, DNA<T> b)
         {
-            if(a.Fitness > b.Fitness)
+            if (a.Fitness > b.Fitness)
             {
                 return -1;
-            } else if(a.Fitness < b.Fitness)
+            }
+            else if (a.Fitness < b.Fitness)
             {
                 return 1;
             }

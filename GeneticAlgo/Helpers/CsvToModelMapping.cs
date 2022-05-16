@@ -1,4 +1,4 @@
-﻿using GeneticAlgo.Models;
+﻿using GeneticAlgo.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

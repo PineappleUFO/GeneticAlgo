@@ -11,4 +11,8 @@
     <PackageReference Include="TinyCsvParser" Version="2.6.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GeneticAlgo.Core\GeneticAlgo.Core.csproj" />
+  </ItemGroup>
+
 </Project>

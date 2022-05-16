@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GeneticAlgo.Models
+namespace GeneticAlgo.Core.Model
 {
     public class NasaTreeModel
     {
@@ -12,6 +12,5 @@ namespace GeneticAlgo.Models
         public double Ef_Test { get; set; }
 
         public List<NasaTreeModel> Childrens { get; set; } = new List<NasaTreeModel>();
-
-        }
+    }
 }

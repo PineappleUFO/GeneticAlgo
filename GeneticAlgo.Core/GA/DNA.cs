@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneticAlgo.GA
+namespace GeneticAlgo.Core.GA
 {
-    internal class DNA<T>
+    public  class DNA<T>
     {
         public T[] Genes { get; private set; }
         public float Fitness { get; private set; }
@@ -15,21 +15,21 @@ namespace GeneticAlgo.GA
         private Func<T> getRandomGene;
         Func<int, float> fitnessFunction;
 
-        public DNA(int size, Random random, Func<T> getRandomGene,Func<int,float> fitnessFunction, bool shouldInitGenes = true)
+        public DNA(int size, Random random, Func<T> getRandomGene, Func<int, float> fitnessFunction, bool shouldInitGenes = true)
         {
             Genes = new T[size];
             this.random = random;
             this.getRandomGene = getRandomGene;
             this.fitnessFunction = fitnessFunction;
 
-            if(shouldInitGenes)
+            if (shouldInitGenes)
             {
                 for (int i = 0; i < Genes.Length; i++)
                 {
                     Genes[i] = getRandomGene();
                 }
             }
-         
+
         }
 
         public float CalculateFitness(int index)
@@ -40,13 +40,13 @@ namespace GeneticAlgo.GA
 
         public DNA<T> Crossover(DNA<T> otherParent)
         {
-            DNA<T> child = new DNA<T>(Genes.Length,random,getRandomGene,fitnessFunction,false);
+            DNA<T> child = new DNA<T>(Genes.Length, random, getRandomGene, fitnessFunction, false);
 
-           
+
 
             for (int i = 0; i < Genes.Length; i++)
             {
-                child.Genes[i] = random.NextDouble() < 0.5 ? Genes[i]: otherParent.Genes[i];
+                child.Genes[i] = random.NextDouble() < 0.5 ? Genes[i] : otherParent.Genes[i];
             }
             return child;
         }
@@ -55,7 +55,7 @@ namespace GeneticAlgo.GA
         {
             for (int i = 0; i < Genes.Length; i++)
             {
-                if(random.NextDouble() < mutationRate)
+                if (random.NextDouble() < mutationRate)
                 {
                     Genes[i] = getRandomGene();
                 }

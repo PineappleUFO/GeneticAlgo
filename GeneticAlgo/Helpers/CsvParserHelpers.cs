@@ -1,4 +1,4 @@
-﻿using GeneticAlgo.Models;
+﻿using GeneticAlgo.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using TinyCsvParser;
 
 namespace GeneticAlgo.Helpers
 {
-    internal class CsvParserHelpers
+    public class CsvParserHelpers
     {
         public List<NasaTreeModel> GetModelsFromCSV(string path)
         {
